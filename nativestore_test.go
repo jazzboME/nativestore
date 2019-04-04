@@ -11,7 +11,8 @@ func TestSetGet(t *testing.T) {
 	user, secret, err := Get("mobingi-sdk-go", url)
 	if err == nil {
 		if user != "user" {
-			t.Errorf("Expecting user, got %s", user)		}
+			t.Errorf("Expecting user, got %s", user)
+		}
 
 		if secret != "password" {
 			t.Errorf("Expecting password, got %s", secret)
@@ -21,4 +22,3 @@ func TestSetGet(t *testing.T) {
 	}
 
 }
-

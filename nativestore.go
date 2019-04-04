@@ -5,9 +5,9 @@ import dcred "github.com/docker/docker-credential-helpers/credentials"
 // Set inserts the credential into the system native key store
 func Set(lbl, url, user, secret string) error {
 	cr := &dcred.Credentials{
-			ServerURL: url,
-			Username: user,
-			Secret: secret,
+		ServerURL: url,
+		Username:  user,
+		Secret:    secret,
 	}
 
 	dcred.SetCredsLabel(lbl)

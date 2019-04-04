@@ -1,10 +1,10 @@
 package main
 
 import (
-	"syscall"
 	"fmt"
-	"os"
 	"nativestore"
+	"os"
+	"syscall"
 
 	"golang.org/x/crypto/ssh/terminal"
 )
@@ -30,7 +30,7 @@ func main() {
 			fmt.Printf("Failed to create the new secret: %v", err)
 			os.Exit(1)
 		}
-		fmt.Printf("\nCreated!\n");
+		fmt.Printf("\nCreated!\n")
 
 	case "get":
 		if nArgs < 3 {
@@ -43,20 +43,20 @@ func main() {
 			os.Exit(1)
 		}
 		fmt.Println(user, ":", secret)
-		
+
 	case "del":
 		if nArgs < 3 {
 			fmt.Printf("Not enough parameters to delete a secret. Got %d, need 2\n\n", nArgs-1)
 			usage(os.Args[0])
-		}		
+		}
 		err := nativestore.Del(args[1], args[2])
 		if err != nil {
 			fmt.Printf("Couldn't delete secret: %v", err)
 			os.Exit(1)
 		}
 		fmt.Printf("Deleted.\n")
-		default:
-			usage(os.Args[0])
+	default:
+		usage(os.Args[0])
 	}
 
 }

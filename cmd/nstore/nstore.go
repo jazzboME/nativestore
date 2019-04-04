@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"nativestore"
+	"github.com/jazzboME/nativestore"
 	"os"
 	"syscall"
 
@@ -10,6 +10,9 @@ import (
 )
 
 func main() {
+	if len(os.Args) == 1 {
+		usage(os.Args[0])
+	}
 	args := os.Args[1:]
 	nArgs := len(args)
 	switch cmd := args[0]; cmd {
